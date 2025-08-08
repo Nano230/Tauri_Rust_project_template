@@ -1,0 +1,2 @@
+# Tauti_Rust_project_template
+Rustを利用したGUIツール作成時のテンプレート
