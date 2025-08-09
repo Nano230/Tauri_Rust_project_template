@@ -42,7 +42,7 @@
 }
 
 .row {
-  display: flex;
+  display: flex; /* array widgets in a row */
   justify-content: center;
 }
 

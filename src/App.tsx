@@ -12,6 +12,14 @@ function App() {
     setGreetMsg(await invoke("greet", { name }));
   }
 
+  // const handleExit = async () => {
+  //   await invoke("exit_app")
+  // }
+
+  async function handleExit() {
+    await invoke("exit_app")
+  }
+
   return (
     <main className="container">
       <h1>Welcome to Tauri + React</h1>
@@ -27,7 +35,6 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
 
       <form
         className="row"
@@ -44,6 +51,8 @@ function App() {
         <button type="submit">Greet</button>
       </form>
       <p>{greetMsg}</p>
+      <button className="exit_button" onClick={handleExit}>Exit</button>
+
     </main>
   );
 }
