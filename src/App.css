@@ -46,6 +46,11 @@
   justify-content: center;
 }
 
+.func_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -93,6 +98,10 @@ button {
 
 #greet-input {
   margin-right: 5px;
+}
+
+func_buttons {
+  margin-left: 50px;
 }
 
 @media (prefers-color-scheme: dark) {

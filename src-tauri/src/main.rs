@@ -9,6 +9,7 @@ fn main() {
             commands::greet,
             commands::exit_app,
             ])
+        .plugin(tauri_plugin_dialog::init())
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

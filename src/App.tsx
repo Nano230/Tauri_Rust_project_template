@@ -1,24 +1,42 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
+import { open } from "@tauri-apps/plugin-dialog";
 import "./App.css";
 
-function App() {
+export default function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
+  const [selectedFile, setSelectedFile] = useState<string | null>(null);
 
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
     setGreetMsg(await invoke("greet", { name }));
   }
 
-  // const handleExit = async () => {
+  const handleExit = async () => {
+    await invoke("exit_app")
+  }
+
+  // async function handleExit() {
   //   await invoke("exit_app")
   // }
 
-  async function handleExit() {
-    await invoke("exit_app")
-  }
+  const handleFileSelect = async () => {
+    const filePath = await open({
+      multiple: false, // allow only one file
+      filters: [
+        {
+          name: "Text Files",
+          extensions: ["txt", "md", "json"]
+        },
+      ],
+    });
+
+    if (filePath) {
+      setSelectedFile(filePath as string);
+    }
+  };
 
   return (
     <main className="container">
@@ -51,10 +69,11 @@ function App() {
         <button type="submit">Greet</button>
       </form>
       <p>{greetMsg}</p>
-      <button className="exit_button" onClick={handleExit}>Exit</button>
-
+      <div className="func_buttons">
+        <button className="exit_button" onClick={handleExit}>Exit</button>
+        <button onClick={handleFileSelect}>Select File</button>
+      </div>
+      {selectedFile && <p>Selected File: {selectedFile}</p>}
     </main>
   );
 }
-
-export default App;
