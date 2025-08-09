@@ -51,6 +51,18 @@ added 71 packages, and audited 72 packages in 24s
 
 found 0 vulnerabilities
 ```
+### プラグインのインストール
+エクスプローラー形式のファイル選択機能を利用する場合、dialog pluginをインストールする
+```
+cargo tauri add dialog
+        Info Installing Cargo dependency "tauri-plugin-dialog"...
+    Updating crates.io index
+      Adding tauri-plugin-dialog v2 to dependencies
+        Info Installing NPM dependency "@tauri-apps/plugin-dialog@>=2"...
+       Added permission `dialog:default` to `default` at C:\Users\nanof\ドキュメント\GitHub\Tauri_Rust_project_template\src-tauri\capabilities\default.json
+        Info Plugin initialization code already found on C:\Users\nanof\ドキュメント\GitHub\Tauri_Rust_project_template\src-tauri\src/main.rs
+```
+
 ### アプリケーションのビルド
 ```
 cargo tauri dev

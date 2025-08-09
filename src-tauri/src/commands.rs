@@ -7,7 +7,6 @@ pub fn greet(name: &str) -> String {
 
 #[tauri::command]
 pub fn exit_app(window: tauri::Window) {
-    println!("exit button pushed.");
     window.close().unwrap(); // Close current window
     std::process::exit(0); // Fully terminate the app (force kill all windows)
 }

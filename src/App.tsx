@@ -70,8 +70,8 @@ export default function App() {
       </form>
       <p>{greetMsg}</p>
       <div className="func_buttons">
-        <button className="exit_button" onClick={handleExit}>Exit</button>
         <button onClick={handleFileSelect}>Select File</button>
+        <button className="exit_button" onClick={handleExit}>Exit</button>
       </div>
       {selectedFile && <p>Selected File: {selectedFile}</p>}
     </main>
